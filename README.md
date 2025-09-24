@@ -1,66 +1,115 @@
-# GPTPy: Your kind Python guide, powered by AI to fix errors and explain code
+CodeFix AI
 
-[![asciicast](https://asciinema.org/a/momJh0P8YiZRY5IW0ZwTTynhA.svg)](https://asciinema.org/a/momJh0P8YiZRY5IW0ZwTTynhA)
+A Python CLI tool that runs Python code, detects errors, and explains them in plain English.
 
-## Installation
+Overview
 
-```bash
-pip install -U gptpy
-```
+CodeFix AI is a command-line interface (CLI) tool that helps Python developers — especially beginners — understand errors in their code. It detects common Python errors and provides friendly explanations to help you fix your code quickly.
 
-## Usage
+This project is based on the original CodeFix AI, but all improvements, CLI enhancements, and error explanations were implemented by me.
 
-### Simply run your code
+Features
 
-```bash
-gptpy runnable_python_code.py
-```
+.Detects common Python errors:
 
-### ..or run with arguments
+.SyntaxError
 
-```bash
-gptpy runnable_python_code.py --arg1=1 --arg2=2
-```
+.IndentationError
 
-## Example
+.NameError
 
-Here's a simple Python code, which has a syntax error.
+.TypeError
 
-```python
-# test.py
-def add(a, b):
-    print("a + b)
-```
+.ZeroDivisionError
 
-If you run `test.py`, you will get an error.
+.ValueError
+/
+.Provides plain-English explanations for errors.
 
-```
-$ python test.py 
-  File "~/test.py", line 1
-    print("a + b)
-                 ^
-SyntaxError: EOL while scanning string literal
-```
+.Works entirely in the terminal / command line.
 
-Now, let's use `gptpy` to fix the error.
+.Easy to run with or without arguments.
 
-```
-$ gptpy test.py 
---------------------------------------------------
-[GPTPy] Your code has an error!
-[GPTPy] Error Reason: 
+Installation
 
-# The user code is missing a closing quotation mark.
-SyntaxError: EOL while scanning string literal
+Clone the repository:
 
-[GPTPy] Here's fixed code:
+git clone https://github.com/GraceMugure/codefix-ai.git
+cd codefix-ai
 
-print("a + b")
---------------------------------------------------
-```
 
-## Limitations
+Make sure Python 3 is installed.
 
-- GPT-3 is not perfect. It may not be able to fix all errors.
-- It may take a while to get the result.
+Usage
+Run a Python file:
+python codefix-ai.py path/to/your_script.py
 
+Run a Python file with arguments:
+python codefix-ai.py path/to/your_script.py arg1 arg2
+
+Examples
+1. SyntaxError
+
+test.py:
+
+print("Hello World
+
+
+Output:
+
+[CodeFix AI] ❌ Your code has an error!
+SyntaxError: unterminated string literal
+[CodeFix AI] 💡 Explanation:
+There’s a mistake in the code structure. Check colons, brackets, or indentation.
+
+2. ZeroDivisionError
+
+test.py:
+
+print(10 / 0)
+
+
+Output:
+
+[CodeFix AI] ❌ Your code has an error!
+ZeroDivisionError: division by zero
+[CodeFix AI] 💡 Explanation:
+You divided by zero, which is not allowed.
+
+3. NameError
+
+test.py:
+
+print(unknown_variable)
+
+
+Output:
+
+[CodeFix AI] ❌ Your code has an error!
+NameError: name 'unknown_variable' is not defined
+[CodeFix AI] 💡 Explanation:
+You used a variable/function that hasn’t been defined.
+
+⚡ Features
+
+Explains Python errors in simple English
+
+Suggests improvements and fixes
+
+Helps beginners understand errors instead of just fixing them
+
+Works locally — no external API required
+
+📌Limitations
+
+Currently works only with Python code
+
+Not all errors can be fully explained yet (work in progress 🚧)
+
+🌟Future Plans
+
+Add support for multiple programming languages
+
+Smarter error explanations with AI integration
+
+Option to auto-fix code
